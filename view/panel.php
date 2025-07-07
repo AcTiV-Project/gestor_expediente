@@ -108,7 +108,7 @@
                         if (isset($_SESSION['usuario'])):
                               $usuario = $_SESSION['usuario'];
 
-                              $sql = "SELECT * FROM autores WHERE LOWER(nombre) = '$usuario'";
+                              $sql = "SELECT * FROM lideres WHERE LOWER(nombre) = '$usuario'";
                               $resultado = mysqli_query($conexion, $sql);
 
                               if ($resultado && mysqli_num_rows($resultado) > 0):

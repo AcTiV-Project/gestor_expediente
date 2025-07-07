@@ -1,6 +1,6 @@
-Usuario: Cristel Vanegas
-Clave: pieza*507
+Usuario: Robert Knight
+Clave: jupiter*807
 
 
-Usuario: Jorge Bernuil
-Clave: cazador*507
+Usuario: Julia Knight
+Clave: cazador*807
