@@ -1,0 +1,25 @@
+@media (max-width: 900px){
+      .grid{
+            grid-template-rows: 250px auto;
+            grid-template-areas: 'aside aside'
+                                 'section section';
+      }
+      .form{
+            width: 100%;
+      }
+      .form form{
+            width: 100%;
+      }
+      .myform{
+            width: 90%;
+      }
+}
+
+@media (max-width: 600px){
+      .functions{
+            flex-direction: column;
+      }
+      .functions div{
+            width: 90%;
+      }
+}

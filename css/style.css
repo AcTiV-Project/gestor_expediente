@@ -1,0 +1,179 @@
+*{
+      margin: 0;
+      padding: 0;
+}
+body{
+      background-color: #222831;
+}
+:root{
+      --color-letra: #00809D;
+      --color-fondo: #222831;
+}
+h1{
+      color: var(--color-letra);
+      font-family: "Oswald", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: weight;
+      font-style: normal;
+}
+h2{
+      color: var(--color-letra);
+}
+h3{
+      color: var(--color-letra);
+}
+label{
+      color: var(--color-letra);
+}
+li{
+      color: var(--color-letra);
+}
+p{
+      color: var(--color-letra);
+}
+a{
+      color: var(--color-letra);
+}
+:root{
+      --espacio-dentro: 30px;
+      --titulo1: 2em;
+      --parrafo: 25px;
+}
+.div-form{
+      width: 100%;
+      height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+}
+.myform{
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+}
+.myform input{
+      padding: 5px;
+      background-color: var(--color-fondo);
+      color: var(--color-letra);
+      border-style: none;
+      border: 1px solid var(--color-letra);
+}
+.grid{
+      display: grid;
+      grid-template-columns: 80% auto;
+      grid-template-rows: 100vh;
+      grid-template-areas: 'section aside';
+}
+.section{
+      overflow-y: scroll;
+      grid-area: section;
+      padding: var(--espacio-dentro);
+}
+.intro{
+      width: 90%;
+      height: 300px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      padding: var(--espacio-dentro);
+      background-color: #102E50;
+}
+.intro h1{
+      font-size: var(--titulo1);
+}
+.intro p{
+      font-size: var(--parrafo);
+}
+.functions{
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+}
+.functions div{
+      padding: 30px;
+      border-radius: 12px;
+      background-color: #102E50;
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+}
+.functions button{
+      background-color: var(--color-fondo);
+      padding: 10px;
+      border-style: none;
+      border: 1px solid var(--color-letra);
+      border-radius: 10px;
+      color: var(--color-letra);
+      cursor: pointer;
+}
+.aside{
+      grid-area: aside;
+}
+.aside{
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: var(--espacio-dentro);
+}
+.aside ul{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 20px;
+}
+.aside button{
+      margin-top: 20px;
+}
+.form{
+      width: 90%;
+      margin-top: 30px;
+}
+.form form{
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+}
+.form form input{
+      padding: 5px;
+      background-color: var(--color-fondo);
+      color: var(--color-letra);
+      border-style: none;
+      border: 1px solid var(--color-letra);
+}
+.form form textarea{
+      height: 300px;
+      padding: 5px;
+      background-color: var(--color-fondo);
+      color: var(--color-letra);
+      border-style: none;
+      border: 1px solid var(--color-letra);
+}
+.form select{
+      padding: 5px;
+      background-color: var(--color-fondo);
+      color: var(--color-letra);
+      border-style: none;
+      border: 1px solid var(--color-letra);
+}
+.btn-input{
+      cursor: pointer;
+}
+.exit{
+      background-color: var(--color-fondo);
+      padding: 10px;
+      border-style: none;
+      border: 1px solid var(--color-letra);
+      border-radius: 10px;
+      color: var(--color-letra);
+      cursor: pointer;
+}
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
