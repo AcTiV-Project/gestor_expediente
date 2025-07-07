@@ -9,7 +9,7 @@
       if($_POST['numeroid'] == '' || $_POST['nombre'] == '' || $_POST['departamento'] == ''){
             echo "No se permiten valore nulos";
       }else{
-            $sql = "INSERT INTO empleado (numero_id, nombre, departamento) VALUES('$numeroid', '$nombre', '$departamento')";
+            $sql = "INSERT INTO empleados (numero_id, nombre, departamento) VALUES('$numeroid', '$nombre', '$departamento')";
             $datos = mysqli_query($conexion, $sql);
 
             if(!$datos){

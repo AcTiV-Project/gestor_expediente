@@ -7,7 +7,7 @@
       $clave = trim(mysqli_real_escape_string($conexion, $_POST['clave']));
 
       //Consultar el usuario
-      $sql = "SELECT * FROM autores WHERE nombre = '$nombre'";
+      $sql = "SELECT * FROM lideres WHERE nombre = '$nombre'";
       $resultado = mysqli_query($conexion, $sql);
 
       if (!$resultado){

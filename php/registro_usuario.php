@@ -13,7 +13,7 @@
       }else{
             $passwordCifrada = password_hash($clave, PASSWORD_DEFAULT);
 
-            $sql = "INSERT INTO autores VALUES('$numeroid', '$nombre', '$correo', '$departamento', '$telefono', '$passwordCifrada')";
+            $sql = "INSERT INTO lideres VALUES('$numeroid', '$nombre', '$correo', '$departamento', '$telefono', '$passwordCifrada')";
             $query = mysqli_query($conexion, $sql);
 
             if(!$query){

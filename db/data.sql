@@ -3,7 +3,7 @@ CREATE DATABASE gestion;
 USE gestion;
 
 
-CREATE TABLE autores(
+CREATE TABLE lideres(
       numero_id int not null,
       nombre varchar(255) not null,
       correo varchar(255) not null,
@@ -16,8 +16,20 @@ CREATE TABLE autores(
 )ENGINE=InnoDB;
 
 
-CREATE TABLE empleado(
+CREATE TABLE empleados(
       numero_id int PRIMARY KEY NOT NULL,
       nombre varchar(255) NOT NULL,
       departamento varchar(255) NOT NULL
+)ENGINE=InnoDB;
+
+CREATE TABLE reportes(
+      id int PRIMARY KEY AUTO_INCREMENT
+      autor_id int NOT NULL,
+      fecha date NOT NULL,
+      empleado_id int NOT NULL,
+      descripcion text NOT NULL,
+
+
+      CONSTRAINT fk_autor FOREIGN KEY(autor_id) REFERENCES autores(numero_id),
+      CONSTRAINT fk_empleado FOREIGN KEY(empleado_id) REFERENCES empleado(numero_id)
 )ENGINE=InnoDB;
