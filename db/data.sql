@@ -1,6 +1,6 @@
-CREATE DATABASE gestion;
+CREATE DATABASE gestion_empleados;
 
-USE gestion;
+USE gestion_empleados;
 
 
 CREATE TABLE lideres(
@@ -23,13 +23,13 @@ CREATE TABLE empleados(
 )ENGINE=InnoDB;
 
 CREATE TABLE reportes(
-      id int PRIMARY KEY AUTO_INCREMENT
+      id int PRIMARY KEY AUTO_INCREMENT,
       autor_id int NOT NULL,
       fecha date NOT NULL,
       empleado_id int NOT NULL,
       descripcion text NOT NULL,
 
 
-      CONSTRAINT fk_autor FOREIGN KEY(autor_id) REFERENCES autores(numero_id),
-      CONSTRAINT fk_empleado FOREIGN KEY(empleado_id) REFERENCES empleado(numero_id)
+      CONSTRAINT fk_autor FOREIGN KEY(autor_id) REFERENCES lideres(numero_id),
+      CONSTRAINT fk_empleado FOREIGN KEY(empleado_id) REFERENCES empleados(numero_id)
 )ENGINE=InnoDB;
