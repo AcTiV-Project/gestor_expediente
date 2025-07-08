@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,21 +18,56 @@
 <body>
       <div class="grid">
             <section class="section">
-                  <div class="intro">
-                        <h1>Nombre: Jorge Bernuil</h1>
-                        <h3>Puesto de trabajo: Informatica</h3>
-                        <h3>ID: 8983614</h3>
-                  </div>
+                  <?php
+                        include('../php/conexion.php');
 
-                  <div class="reportes">
-                        <article>
-                              <h1>Jorge Bernuil</h1>
-                              <h3>10/06/2025</h3>
-                              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate nobis molestiae minus fugiat at, vero eum a, quos nostrum ipsum porro non dolor cumque atque mollitia sapiente sed! Minus, soluta.
-                              Exercitationem quos distinctio molestias sed minus ut, perferendis pariatur illum alias nam nihil sint, nemo amet corporis impedit culpa velit harum ullam, aut repellat id necessitatibus praesentium? Ut, voluptatem totam.
-                              Consequatur error sapiente eaque, voluptates dolores cum voluptatum perferendis dolore quidem eligendi harum iusto exercitationem nam dignissimos, illum vero placeat sunt dolorum at soluta natus? Quod incidunt optio possimus animi.</p>
-                        </article>
-                  </div>
+                        if (!isset($_GET['numeroid']) || empty($_GET['numeroid'])) {
+                              echo "Ingrese un número ID";
+                              exit;
+                        }
+
+                        $numeroid = mysqli_real_escape_string($conexion, $_GET['numeroid']);
+
+                        $sql = "SELECT 
+                                    empleados.numero_id AS empleado_id, 
+                                    empleados.nombre AS empleado_nombre, 
+                                    empleados.departamento AS empleado_departamento,
+                                    reportes.autor_id AS autor_id, 
+                                    reportes.fecha AS fecha, 
+                                    reportes.descripcion AS descripcion,
+                                    lideres.nombre AS autor_nombre
+
+                                    FROM reportes
+                                    INNER JOIN empleados ON reportes.empleado_id = empleados.numero_id
+                                    INNER JOIN lideres ON lideres.numero_id = reportes.autor_id
+                                    WHERE empleados.numero_id = '$numeroid'";
+
+                        $resultado = mysqli_query($conexion, $sql);
+
+                        if ($resultado && mysqli_num_rows($resultado) > 0):
+                              while ($fila = mysqli_fetch_assoc($resultado)):
+                        ?>
+
+                        <div class="intro">
+                              <h1><?= htmlspecialchars($fila['empleado_nombre']) ?></h1>
+                              <h3><?= htmlspecialchars($fila['empleado_departamento']) ?></h3>
+                              <h3>ID: <?= htmlspecialchars($fila['empleado_id']) ?></h3>
+                        </div>
+
+                        <div class="reportes">
+                              <article>
+                                    <h1>Autor: <?= htmlspecialchars($fila['autor_nombre']) ?></h1>
+                                    <h3>Fecha: <?= htmlspecialchars($fila['fecha']) ?></h3>
+                                    <p><?= nl2br(htmlspecialchars($fila['descripcion'])) ?></p>
+                              </article>
+                        </div>
+
+                        <?php
+                              endwhile;
+                        else:
+                              echo "No se encontraron resultados.";
+                        endif;
+                  ?>
             </section>
 
 

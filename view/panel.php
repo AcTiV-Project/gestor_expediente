@@ -1,4 +1,10 @@
-<?php session_start() ?>
+<?php 
+      session_start();
+
+      include('../php/conexion.php');
+      include('../php/main.php');
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,8 +37,8 @@
                         </div>
 
                         <div class="">
-                              <h1>Descargas</h1>
-                              <p>Descargar el expediente de un usuario</p>
+                              <h1>Expedientes</h1>
+                              <p>Ver el expediente de un usuario</p>
                               <button id="opcion2" class="execute btn_descarga">Ejecutar</button>
                         </div>
 
@@ -45,21 +51,41 @@
 
 
                   <div id="form1" class="form formulario">
-                        <form class="myform" action="" method="post">
+                        <form class="myform" action="../php/reportes.php" method="post">
                               <h1>Levantar un reporte</h1>
 
+                              <label for="empleados">Empleado</label>
                               <select name="empleado" id="">
-                                    <option value="Jorge Bernuil">Jorge Bernuil</option>
+                                    <?php
+                                          $resultado = listar_empleado($conexion);
+                                          while($datos = mysqli_fetch_assoc($resultado)):
+                                    ?>
+
+                                    <option value="<?= $datos['numero_id'] ?>"><?=$datos['nombre'] ?></option>
+
+                                    <?php
+                                          endwhile;
+                                    ?>
                               </select>
 
-                              <label for="">Fecha</label>
+                              <label for="fecha">Fecha</label>
                               <input type="date" name="fecha" placeholder="Fecha" id="">
 
-                              <select name="autor" id="">
-                                    <option value="luis abrego">Luis Abrego</option>
+                              <label for="lider">Lider</label>
+                              <select name="lider" id="">
+                                    <?php
+                                          $resultado = listar_lideres($conexion);
+                                          while($datos = mysqli_fetch_assoc($resultado)):
+                                    ?>
+
+                                    <option value="<?= $datos['numero_id'] ?>"><?=$datos['nombre'] ?></option>
+
+                                    <?php
+                                          endwhile;
+                                    ?>
                               </select>
                               
-                              <label for="">Descripción</label>
+                              <label for="descripcion">Descripción</label>
                               <textarea name="descripcion" placeholder="Ingrese una descripcion" id=""></textarea>
 
                               <input class="btn-input" name="btn_informe" type="submit" value="EXECUTE">
@@ -68,7 +94,7 @@
 
 
                   <div id="form2" class="form formulario oculto">
-                        <form action="expediente.php" method="post">
+                        <form action="expediente.php" method="GET">
                               <h1>Ver expedientes</h1>
 
                               <label for="">Numero id</label>
