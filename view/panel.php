@@ -68,11 +68,11 @@
 
 
                   <div id="form2" class="form formulario oculto">
-                        <form action="" method="post">
-                              <h1>Descargar expediente</h1>
+                        <form action="expediente.php" method="post">
+                              <h1>Ver expedientes</h1>
 
                               <label for="">Numero id</label>
-                              <input type="number" name="numeroid" placeholder="Ingrese numero id" id="">
+                              <input type="number" name="numeroid" placeholder="Ingrese numero id del empleado" id="">
 
                               <input class="btn-input" type="submit" value="EXECUTE">
                         </form>
@@ -135,8 +135,6 @@
                         </form>
                   </div>
             </aside>
-
-
       </div>
 </body>
 </html>
