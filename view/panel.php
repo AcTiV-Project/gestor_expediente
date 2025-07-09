@@ -54,36 +54,43 @@
                         <form class="myform" action="../php/reportes.php" method="post">
                               <h1>Levantar un reporte</h1>
 
-                              <label for="empleados">Empleado</label>
-                              <select name="empleado" id="">
+                              <label for="lider">Lider</label>
+                              <input type="number" name="lider" placeholder="Ingrese ID del lider de equipo" id="">
+                              <!--
+                              <select name="" id="">
                                     <?php
-                                          $resultado = listar_empleado($conexion);
-                                          while($datos = mysqli_fetch_assoc($resultado)):
+                                          //$resultado = listar_lideres($conexion);
+                                          //while($datos = mysqli_fetch_assoc($resultado)):
                                     ?>
 
-                                    <option value="<?= $datos['numero_id'] ?>"><?=$datos['nombre'] ?></option>
+                                    <option value="<?//= $datos['numero_id'] ?>"><?//=$datos['nombre'] ?></option>
 
                                     <?php
-                                          endwhile;
+                                          //endwhile;
                                     ?>
                               </select>
+                              -->
 
                               <label for="fecha">Fecha</label>
                               <input type="date" name="fecha" placeholder="Fecha" id="">
 
-                              <label for="lider">Lider</label>
-                              <select name="lider" id="">
+                              <label for="empleados">Empleado</label>
+                              <input type="number" name="empleado" placeholder="Ingrese ID del empleado" id="">
+                              <!--
+                              <select name="" id="">
                                     <?php
-                                          $resultado = listar_lideres($conexion);
-                                          while($datos = mysqli_fetch_assoc($resultado)):
+                                          //$resultado = listar_empleado($conexion);
+                                          //while($datos = mysqli_fetch_assoc($resultado)):
                                     ?>
 
-                                    <option value="<?= $datos['numero_id'] ?>"><?=$datos['nombre'] ?></option>
+                                    <option value="<?//= $datos['numero_id'] ?>"><?//=$datos['nombre'] ?></option>
 
                                     <?php
-                                          endwhile;
+                                          //endwhile;
                                     ?>
                               </select>
+                              -->
+
                               
                               <label for="descripcion">Descripción</label>
                               <textarea name="descripcion" placeholder="Ingrese una descripcion" id=""></textarea>

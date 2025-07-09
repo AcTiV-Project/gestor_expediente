@@ -56,7 +56,7 @@
 
                         <div class="reportes">
                               <article>
-                                    <h1>Autor: <?= htmlspecialchars($fila['autor_nombre']) ?></h1>
+                                    <h1>Lider: <?= htmlspecialchars($fila['autor_nombre']) ?></h1>
                                     <h3>Fecha: <?= htmlspecialchars($fila['fecha']) ?></h3>
                                     <p><?= nl2br(htmlspecialchars($fila['descripcion'])) ?></p>
                               </article>
